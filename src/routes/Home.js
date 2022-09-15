@@ -22,7 +22,7 @@ export const Home = () => {
           <div className='circle'>{data.name.substring(0,1)}</div>
           <h4 className='h4'>{data.name}</h4>
           <p><small>@{data.username}</small></p>
-          <a href = {`${data.website}`} className="a">{data.website}</a>
+          <a href = "" className="a">{data.website}</a>
           <br />
           <Link to={{pathname: `/detail/${data.id}`}}>
             <Button />

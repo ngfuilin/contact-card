@@ -26,7 +26,7 @@ const Detail = () => {
           <FaEnvelope style={{color: "navy"}}/><a className="home-nav-links a" href={`mailto:${jsonObj.email}`} target="_blank" rel="noopener noreferrer">{jsonObj.email}</a>
             <p><FaPhone /><a className="home-nav-links a" href="tel:PHONE_NUM">{jsonObj.phone}</a></p>
             <p><FaBuilding/><span className="a">{jsonObj.company? jsonObj.company.name : '...' }</span></p>
-            <p><FaGlobe /><a href = {`${jsonObj.website}`} className="a">{jsonObj.website}</a></p>
+            <p><FaGlobe /><a href = "" className="a">{jsonObj.website}</a></p>
             <FaMapMarkerAlt style={{color: "navy"}}/><span className="a">Address:</span>
               <li className='li'>{ jsonObj.address? jsonObj.address.street : '...' }</li>
               <li className='li'>{ jsonObj.address? jsonObj.address.suite : '...' }</li>
