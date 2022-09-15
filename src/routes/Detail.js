@@ -5,7 +5,6 @@ import { FaPhone, FaEnvelope, FaUser, FaGlobe, FaMapMarkerAlt, FaBuilding, FaUse
 
 const Detail = () => {
 
-  // eslint-disable-next-line
   const {id} = useParams();
   const [users, setUsers] = useState({});
  
