@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import {Link} from 'react-router-dom';
 import { Button } from './Button';
+import { FaGlobe } from "react-icons/fa";
 
 export const Home = () => {
 
@@ -22,7 +23,7 @@ export const Home = () => {
           <div className='circle'>{data.name.substring(0,1)}</div>
           <h4 className='h4'>{data.name}</h4>
           <p><small>@{data.username}</small></p>
-          <a href = "" className="a">{data.website}</a>
+          <FaGlobe /><a href = {`http://${data.website}`} target="_blank" rel="noopener noreferrer" className="a">http://{data.website}</a>
           <br />
           <Link to={{pathname: `/detail/${data.id}`}}>
             <Button />

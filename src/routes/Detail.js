@@ -10,7 +10,6 @@ const Detail = () => {
  
   useEffect(() => {
     axios
-    
       .get(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((res) => setUsers(res.data))
       .catch((err) => console.log(err));
@@ -19,6 +18,7 @@ const Detail = () => {
   const jsonObj = JSON.parse(JSON.stringify(users))
 
   return (
+  
     <div className="container">
       <div className='box_detail'>
         <ul><FaUser/><span className="a" style={{fontSize: "20px"}}>{jsonObj.name}</span>
@@ -26,7 +26,7 @@ const Detail = () => {
           <FaEnvelope style={{color: "navy"}}/><a className="home-nav-links a" href={`mailto:${jsonObj.email}`} target="_blank" rel="noopener noreferrer">{jsonObj.email}</a>
             <p><FaPhone /><a className="home-nav-links a" href="tel:PHONE_NUM">{jsonObj.phone}</a></p>
             <p><FaBuilding/><span className="a">{jsonObj.company? jsonObj.company.name : '...' }</span></p>
-            <p><FaGlobe /><a href = "" className="a">{jsonObj.website}</a></p>
+            <p><FaGlobe /><a href= {`http://${jsonObj.website}`}  target="_blank" rel="noopener noreferrer" className="a">http://{jsonObj.website}</a></p>
             <FaMapMarkerAlt style={{color: "navy"}}/><span className="a">Address:</span>
               <li className='li'>{ jsonObj.address? jsonObj.address.street : '...' }</li>
               <li className='li'>{ jsonObj.address? jsonObj.address.suite : '...' }</li>
@@ -35,6 +35,7 @@ const Detail = () => {
         </ul> 
       </div>     
   </div>
+ 
   )
 }
 

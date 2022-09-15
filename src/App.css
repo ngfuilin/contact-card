@@ -54,9 +54,9 @@
   align-items: left;
   justify-content: center;
   margin-right: 20px;
-  margin-bottom: 20px;
   margin-left: 20px;
-  padding-left: 20px;
+  margin-bottom: 20px;
+  /*padding-left: 20px;*/
   border-radius: 10px;
   background-color: #ADF7F2;
   background-image: linear-gradient(#ADF7F2, white);
