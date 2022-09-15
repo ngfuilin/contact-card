@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import {Link} from 'react-router-dom';
+import { Button } from './Button';
 
 export const Home = () => {
 
@@ -23,9 +24,8 @@ export const Home = () => {
           <p><small>@{data.username}</small></p>
           <a href = {`${data.website}`} className="a">{data.website}</a>
           <br />
-          <Link to={{pathname: `/detail/${data.id}`}}
-                    >
-            <button className='btn'>MORE DETAIL</button>
+          <Link to={{pathname: `/detail/${data.id}`}}>
+            <Button />
           </Link>
         </div>
         )
