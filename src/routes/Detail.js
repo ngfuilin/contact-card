@@ -1,36 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import {useParams, useLocation} from "react-router-dom";
-import { FaPhone, FaEnvelope } from "react-icons/fa";
+import {useParams} from "react-router-dom";
+import { FaPhone, FaEnvelope, FaUser, FaGlobe, FaMapMarkerAlt, FaBuilding, FaUserTag} from "react-icons/fa";
 
 const Detail = () => {
   const {id} = useParams();
 
-  const [users, setUsers] = useState([]);
-
+  const [users, setUsers] = useState({});
+ 
   useEffect(() => {
     axios
       .get(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((res) => setUsers(res.data))
       .catch((err) => console.log(err));
-  }, []);
+    }, []);
 
-  const data = JSON.parse("[".concat(JSON.stringify(users)).concat("]"))
- 
+  const jsonObj = JSON.parse(JSON.stringify(users))
+
   return (
-
     <div className="container">
-          <div className='box_detail'>
-                    
-          <ul><p>-Name: {data[0].name} {id}</p>
-              <p>-username: {data[0].username}</p>
-              <FaEnvelope />{'  '} <a className="home-nav-links" href={`mailto:${data[0].email}`} target="_blank" rel="noopener noreferrer">{data[0].email}</a>
-              <p><FaPhone />{'  '} <a className="home-nav-links" href="tel:PHONE_NUM">{data[0].phone}</a></p>
-              <p>-company: </p>
-              <p>-website: {data[0].website}</p>
-             </ul> 
-          </div>  
-            
+      <div className='box_detail'>
+        <ul><FaUser/><span className="a" style={{fontSize: "20px"}}>{jsonObj.name}</span>
+        <p><FaUserTag style={{color: "navy"}}/><span className="a" style={{fontSize: "14px", fontWeight: "normal"}}>Username: {jsonObj.username}</span></p>
+          <FaEnvelope style={{color: "navy"}}/><a className="home-nav-links a" href={`mailto:${jsonObj.email}`} target="_blank" rel="noopener noreferrer">{jsonObj.email}</a>
+            <p><FaPhone /><a className="home-nav-links a" href="tel:PHONE_NUM">{jsonObj.phone}</a></p>
+            <p><FaBuilding/><span className="a">{jsonObj.company? jsonObj.company.name : '...' }</span></p>
+            <p><FaGlobe /><a href = {`${jsonObj.website}`} className="a">{jsonObj.website}</a></p>
+            <FaMapMarkerAlt style={{color: "navy"}}/><span className="a">Address:</span>
+              <li className='li'>{ jsonObj.address? jsonObj.address.street : '...' }</li>
+              <li className='li'>{ jsonObj.address? jsonObj.address.suite : '...' }</li>
+              <li className='li'>{ jsonObj.address? jsonObj.address.city : '...' }</li>
+              <li className='li'>{ jsonObj.address? jsonObj.address.zipcode : '...' }</li>
+        </ul> 
+      </div>     
   </div>
   )
 }
