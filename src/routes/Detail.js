@@ -4,12 +4,14 @@ import {useParams} from "react-router-dom";
 import { FaPhone, FaEnvelope, FaUser, FaGlobe, FaMapMarkerAlt, FaBuilding, FaUserTag} from "react-icons/fa";
 
 const Detail = () => {
-  const {id} = useParams();
 
+  // eslint-disable-next-line
+  const {id} = useParams();
   const [users, setUsers] = useState({});
  
   useEffect(() => {
     axios
+    
       .get(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((res) => setUsers(res.data))
       .catch((err) => console.log(err));
