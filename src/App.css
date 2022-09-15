@@ -95,6 +95,11 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.btn:hover {
+  cursor: pointer;
+  background-color: lightskyblue;
+}
+
 .circle {
   width: 120px;
   line-height: 120px;
