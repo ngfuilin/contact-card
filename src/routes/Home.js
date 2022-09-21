@@ -19,7 +19,7 @@ export const Home = () => {
     <div className="container">
       {users.map((data, i) => {
         return ( 
-        <div className='box'>
+        <div className='box' key={data.id}>
           <div className='circle'>{data.name.substring(0,1)}</div>
           <h4 className='h4'>{data.name}</h4>
           <p><small>@{data.username}</small></p>
